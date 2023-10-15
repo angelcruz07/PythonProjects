@@ -1,8 +1,8 @@
+import re
 import pyttsx3
 import speech_recognition as sr
-import re
 
-def inicialize_engine():
+def initialize_engine():
   
     engine = pyttsx3.init()
     engine.setProperty("rate", 120)
@@ -17,8 +17,6 @@ def recognizer_voice(r):
         print("Puedes hablar")
         audio = r.listen(source)
         text = r.recognize_google(audio, language="es-ES")
-        name = identify_name(text)  
-        
    return text
         
         
@@ -36,14 +34,14 @@ def identify_name(text):
 
 def main():
   
-    engine = inizialize_engine()
+    engine = initialize_engine()
     
     engine.say("Hola como te llamas")
     engine.runAndWait()
 
     r = sr.Recognizer()
 
-    text = recognizer_voice()
+    text = recognizer_voice(r)
     name = identify_name(text)
    
     if name:
